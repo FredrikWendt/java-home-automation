@@ -1,0 +1,41 @@
+definition
+	someone is home
+means
+	home is not empty
+
+rule evening supper lights
+when
+	someone is home
+	time is after 1930
+	weekday is not friday or saturday
+then
+	set lamp 1 off
+	set lamp 2 off
+	set lamp 3 off
+	set lamp 4 on
+
+rule all lights off when home is empty
+when
+	home is empty
+then
+	set lamp 1 off
+	set lamp 2 off
+	set lamp 3 off
+	set lamp 4 off
+
+rule at least lamp 1 on when someone's home
+when
+	someone is home
+then
+	set lamp 1 on
+
+rule morning lights	
+when
+	someone is home
+	time is after 0600 and before 1100
+	weekday is not saturday or sunday
+then
+	set lamp 1 on
+	set lamp 2 on
+	set lamp 4 on
+

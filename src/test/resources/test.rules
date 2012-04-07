@@ -1,0 +1,48 @@
+rule lamps off when home is empty
+when
+	home is empty
+then
+	set lamp 1 off
+	set lamp 2 off
+	set lamp 3 off
+	set lamp 4 off
+
+
+rule day lights
+when
+	home is not empty
+then
+	set lamp 1 on
+
+	
+rule morning lights
+when 
+	home is not empty
+	time is between 0600 and 0900
+	weekday is not saturday or sunday
+then
+	set lamp 1 on
+	set lamp 2 on
+	set lamp 3 on
+	set lamp 4 on
+
+
+rule evening lights
+when
+	home is not empty
+	time is between 1700 and 1930
+then
+	set lamp 1 on
+	set lamp 2 on
+	set lamp 4 on
+
+
+rule good night lights
+when
+	home is not empty
+	time is between 1930 and 2030
+then
+	set lamp 1 off
+	set lamp 2 off
+	set lamp 3 off
+	set lamp 4 on
